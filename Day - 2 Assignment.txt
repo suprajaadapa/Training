@@ -1,0 +1,155 @@
+1. Write a recursive function pseudocode and calculate the nth Fibonacci number and use Big O notation to analyze its efficiency. Compare this with an iterative approach and discuss the pros and cons in terms of space and time complexity.
+
+Psuedocode :
+
+Function Fibonacci(n):
+    if n <= 1 then
+        return n
+    else
+        return Fibonacci(n - 1) + Fibonacci(n - 2)
+    end if
+End Function
+
+
+Recursive Approach:
+
+Pros:
+
+Easier to implement and understand.
+Cons:
+Exponential time complexity (O(2^n)), making it inefficient for large values of n.
+High memory usage due to function call stack, potentially leading to stack overflow errors for large n.
+Iterative Approach:
+
+Pros:
+Linear time complexity (O(n)), making it more efficient than the recursive approach for large n.
+Lower memory usage as it does not rely on function call stack.
+Cons:
+More complex implementation compared to the recursive approach.
+
+2. Write pseudocode and create a flowchart for a bubble sort algorithm. Provide a brief explanation of how the algorithm works and a simple array of integers to demonstrate a dry run of your algorithm
+
+Procedure BubbleSort(A : list of sortable items)
+    n := length(A)
+    repeat
+        swapped := false
+        for i := 1 to n - 1 do
+            if A[i] > A[i + 1] then
+                swap(A[i], A[i + 1])
+                swapped := true
+            end if
+        end for
+        n := n - 1
+    until not swapped
+End Procedure
+
+Flow Chart:
+         
+
+      
+      Start            
+        |
+        v
+  Initialize i = 1 
+        |
+        v
+  Loop start: i < n
+        |
+        v
+  Initialize j = 0 
+        |
+        v
+  Loop start: j < n-i 
+        |
+        v
+  Check if a[j] > a[j+1] 
+        |
+        v
+  Swap a[j] and a[j+1] 
+        |
+        v
+  Set sorted = false 
+        |
+        v
+  Increment j      
+        |
+        v
+  End of inner loop
+        |
+        v
+ Check if sorted  
+        |
+        v
+  Increment i      
+        |
+        v
+ End of outer loop
+        |
+        v
+ Output sorted array
+        |
+        v
+      End              
+
+Bubble Sort Example :
+
+ i = 1  
+  
+ j   0 1 2 3 4 5 6 7
+ 0   5 3 1 9 8 2 4 7
+ 1   3 5 1 9 8 2 4 7
+ 2   3 1 5 9 8 2 4 7
+ 3   3 1 5 9 8 2 4 7
+ 4   3 1 5 8 9 2 4 7
+ 5   3 1 5 8 2 9 4 7
+ 6   3 1 5 8 2 4 9 7
+-----------------------------
+ i = 2
+ 
+ 0 3 1 5 8 2 4 7 9
+ 1 1 3 5 8 2 4 7
+ 2 1 3 5 8 2 4 7
+ 3 1 3 5 8 2 4 7
+ 4 1 3 5 2 8 4 7
+ 5 1 3 5 2 4 8 7
+------------------------------
+ i = 3 
+ 
+ 0 1 3 5 2 4 7 8
+ 1 1 3 5 2 4 7
+ 2 1 3 5 2 4 7
+ 3 1 3 2 5 4 7
+ 4 1 3 2 4 5 7
+------------------------------
+ i = 4 
+ 
+ 0 1 3 2 4 5 7
+ 1 1 3 2 4 5
+ 2 1 2 3 4 5
+ 3 1 2 3 4 5
+------------------------------
+ i = 5 
+ 0 1 2 3 4 5
+ 1 1 2 3 4
+ 2 1 2 3 4
+------------------------------
+ i = 6 
+ 0 1 2 3 4
+ 1 1 2 3
+------------------------------
+ i = 7 
+ 0 1 2 3
+------------------------------
+ 1 2
+
+for array of size 8, outside i loop repeats 7 times.
+Complexity
+Clearly for an array of size n, the outside loop repeats n-1 times.
+To begin with the inside loop does n-1 comparisons, next time n-2 and so on.
+on the last iteration of the outside loop, the inside loop does 1 comparison. 
+average the inside loop does ((n-1) + 1) / 2 ≈ n/2 comparisons.
+Therefore, the overall number of computation steps is n * n/2 = n2/2
+Complexity of bubble sort = O(n2)
+
+
+  

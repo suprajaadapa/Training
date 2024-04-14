@@ -1,0 +1,173 @@
+Assignment 1: Pseudocode Development - Task: Write a detailed pseudocode for a simple program that takes a number as input, calculates the square if it's even or the cube if it's odd, and then outputs the result. Incorporate conditional
+and looping constructs.
+
+sol:  Pseudocode Development :
+    
+*  Start
+
+   Prompt user to input a number
+   Read and store the input as 'number'
+
+   If number is even
+   Calculate square of 'number'
+   Display the result as 'Square of <number> is <result>'
+   
+   Else
+   
+   Calculate cube of 'number'
+   Display the result as 'Cube of <number> is <result>'
+
+   End 
+
+Program :
+
+
+   import java.util.Scanner;
+
+
+   public class SquareOrCubeCalculator {
+    
+   public static void main(String[] args) {
+        
+        int number = getUserInput();
+        
+        
+        int result = calculateResult(number);
+        
+        
+        displayResult(result);
+    }
+    
+        private static int getUserInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        scanner.close();
+        return number;
+    }
+    
+        private static int calculateResult(int number) {
+        
+        int result;
+        
+                if (number % 2 == 0) {
+result = number * number;
+        } else
+ {
+                       
+result = number * number * number;
+        }
+        
+               return result;
+    }
+    
+    
+    private static void displayResult(int result) {
+        System.out.println("The result is: " + result);
+    }
+}
+
+
+
+
+
+
+====================================================================
+
+Assignment 2: Flowchart Creation - Design a flowchart that outlines the logic for a user login process. It should include conditional paths for successful and unsuccessful login attempts, and a loop that allows a user three attempts before
+ locking the account
+
+sol : Flowchart Creation
+
+ User Login Process
+
+
+Start
+
+Initialize attempts = 0
+
+Repeat until attempts < 3
+    Prompt user to input username and password
+    Read and store the input as 'username' and 'password'
+    
+    If username and password are correct
+        Display "Login Successful"
+        Exit loop
+    
+    Else
+        Display "Invalid username or password"
+        Increment attempts by 1
+
+Display "Account Locked"
+End
+
+=========================================================================
+
+Assignment 3: Function Design and Modularization - Create a document that describes the design of two modular functions: one that returns the factorial of a number, and another that calculates the nth Fibonacci number. Include pseudocode and
+a brief explanation of how modularity in programming helps with code reuse and organization.
+
+Pseudocode:
+
+    Start
+    
+    Initialize factorial = 1
+    
+    If n is 0 or 1
+        Set factorial = 1
+    Else
+        Loop from i = 2 to n
+            Multiply factorial by i
+        
+    Return factorial
+    
+    End
+
+
+Modular Function for Fibonacci Number Calculation :
+
+
+Pseudocode:
+    Start
+    
+    If n is 0
+        Set fibonacciNumber = 0
+    Else if n is 1
+        Set fibonacciNumber = 1
+    Else
+        Initialize fibonacciNumber1 = 0
+        Initialize fibonacciNumber2 = 1
+        
+        Loop from i = 2 to n
+            Set fibonacciNumber = fibonacciNumber1 + fibonacciNumber2
+            Set fibonacciNumber1 = fibonacciNumber2
+            Set fibonacciNumber2 = fibonacciNumber
+        
+    Return fibonacciNumber
+    
+    End
+
+ Explanation of Modularity in Programming :
+
+Modularity in programming involves breaking down a program into smaller, self-contained units (functions or modules) that perform specific tasks. This approach offers several benefits:
+
+1. *Code Reusability:* Modular functions can be reused in multiple parts of a program or in different programs altogether, saving development time and effort.
+
+2. *Ease of Maintenance:* Since each module focuses on a specific task, it's easier to debug, update, or replace a particular module without affecting the rest of the program.
+
+3. *Enhanced Readability:* Modular design makes code more readable and understandable by organizing it into logical units, making it easier for developers to comprehend and maintain.
+
+4. *Scalability:* Modularity allows for easy scalability of a program by adding or removing modules as needed, without affecting the overall structure of the program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

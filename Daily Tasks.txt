@@ -1,0 +1,325 @@
+1.BMI  Program :
+
+import java.util.Scanner;
+
+public class BMI {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your weight in kg and height in meter");
+        float w = sc.nextFloat();
+        float h = sc.nextFloat();
+        float bmi = w / (h*h);
+        if(bmi < 18.5){
+            System.out.println("Under weight");
+        }
+        else if(bmi >= 18.5 && bmi < 25){
+            System.out.println("Normal weight");
+        }
+        else if(bmi >=25 && bmi < 30){
+            System.out.println("Over weight");
+        }
+        else{
+            System.out.println("Obese");
+        }
+    }
+}
+===============================================================================
+
+2.Creditcard Program :
+
+import java.util.Scanner;
+
+public class CreditCard {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What is your credit score ?");
+        int cScore = sc.nextInt();
+        if(cScore > 700){
+            System.out.println("What is your debt score ?");
+            int debt = sc.nextInt();
+            System.out.println("What is your income ?");
+            int income = sc.nextInt();
+            System.out.println("What is your bankruptcies status ?");
+            int bStatus = sc.nextInt();
+            float dti = ((float) debt /income)*100;
+            System.out.println(dti);
+            if(dti > 30 && bStatus >= 5){
+                System.out.println("You are eligible for credit card");
+            }
+            else{
+                System.out.println("You are not eligible for credit card");
+            }
+        }
+        else{
+            System.out.println("mYou are not eligible for credit card");
+        }
+    }
+}
+
+=================================================================================
+
+3.Employee Promotion Program :
+
+import java.util.Scanner;
+
+public class EmployeePromotion {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many years you have been in company ?");
+        int year = sc.nextInt();
+        if(year >= 5){
+            System.out.println("What is your rating ?");
+            String rate = sc.next();
+            if(rate.equals("excellent")){
+                System.out.println("How many advance training have you done ?");
+                int course = sc.nextInt();
+                if(course >= 1){
+                    System.out.println("You are eligible for promotion");
+                }
+                else{
+                    System.out.println("You are not eligible for promotion");
+                }
+            }
+            else{
+                System.out.println("You are not eligible for promotion");
+            }
+        }
+        else{
+            System.out.println("mYou are not eligible for promotion");
+        }
+    }
+}
+
+===================================================================================
+
+4.Health Insurance Program :
+
+import java.util.Scanner;
+
+public class Healthinsurance {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What is your age ?");
+        int age = sc.nextInt();
+        if(age >= 18 && age <= 65){
+            System.out.println("Do you have pre-existing medical condition ? (yes/no)");
+            String condition = sc.next();
+            if(condition.equals("no")){
+                System.out.println("Did you hospitalized during last 6 months ? (yes/no)");
+                String hosp = sc.next();
+                if(hosp.equals("no")){
+                    System.out.println("You are eligible for health insurance");
+                }
+                else{
+                    System.out.println("You are not eligible for health insurance");
+                }
+            }
+            else{
+                System.out.println("You are not eligible for health insurance");
+            }
+        }
+        else{
+            System.out.println("You are not eligible for health insurance");
+        }
+    }
+}
+
+=============================================================================================
+
+5.NumberGuessing Program:
+
+import java.util.Random;
+import java.util.Scanner;
+
+import static java.lang.Math.random;
+
+public class NumberGuessGame {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean flag = true;
+        Random r = new Random();
+        int randomInt = r.nextInt(100) + 1;
+        int count = 1;
+        while(flag){
+            System.out.println("Enter your guess from 1 to 100");
+            int num = sc.nextInt();
+
+                if(num == randomInt){
+                    System.out.println("Correct");
+                    System.out.println("You got answer in "+ count+" attempt");
+                    flag = false;
+                }
+                else if(num > randomInt){
+                    System.out.println("Higher");
+                }
+                else{
+                    System.out.println("Lower");
+                }
+                count++;
+        }
+    }
+}
+====================================================================================================
+6.PrimeNumber Program:
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public static void main(String[] args) {
+        for(int i=2; i <= 100; i++){
+            int count = 0;
+            for(int j=2; j <= i/2; j++){
+                if(i%j == 0){
+                    count++;
+                }
+            }
+            if(count == 0)
+                System.out.println(i+ " ");
+        }
+    }
+}
+
+====================================================================================================
+7.ProductDiscount Program:
+
+import java.util.Scanner;
+
+public class ProductDiscount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter product price");
+        int price = sc.nextInt();
+        System.out.println("Are you a premium member ? (yes/no)");
+        String member = sc.next();
+        if(price > 100){
+            if(member.equals("yes")){
+                price -= (price * 20)/100;
+            }
+            else{
+                price -= (price * 10)/100;
+            }
+        }
+
+        System.out.println(price);
+
+    }
+}
+====================================================================================================
+8.Temperatue Program:
+
+import java.util.Scanner;
+
+public class Temparature {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Press  1. To enter the temprature in celcius \n" +
+                           "       2. To enter the temprature in farhenite");
+        int num = sc.nextInt();
+        System.out.println("Enter the temparature ");
+        float temp = sc.nextInt();
+        float cel, far;
+        if(num == 1){
+            far = (temp * 9 / 5) + 32;
+            System.out.println("Temperature in farhenite is "+ far +" F");
+        }
+        else if(num == 2) {
+            cel = (temp - 32) * 5/9;
+            System.out.println("Temperature in farhenite is "+ cel +" C");
+        }
+        else{
+            System.out.println("Wrong choice !!!");
+        }
+    }
+}
+=====================================================================================================
+9.Voting program:
+
+import java.util.Scanner;
+
+public class Voting {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your age");
+        int age = sc.nextInt();
+        System.out.println("Are you a citizen of India ? (yes/no)");
+        String citizen = sc.next();
+        System.out.println("Do you have criminal background? (yes/no)");
+        String crime = sc.next();
+        if(age > 18 && citizen.equals("yes") && crime.equals("no")){
+            System.out.println("You are eligible to vote.");
+        }
+        else{
+            System.out.println("You are not eligible to vote.");
+        }
+    }
+}
+=================================================================================================
+10.Palindrome Program:
+
+import java.util.Scanner;
+
+public class palindrome {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String");
+        String str = sc.next();
+        int i = 0;
+        String s = "";
+        while(str.length() > i)
+        {
+            char ch = str.charAt(i);
+            s = ch + s;
+            i++;
+        }
+        if(s.equals(str))
+            System.out.println("String is a palindrome");
+        else
+            System.out.println("String is not a Palindrome");
+
+    }
+}
+===================================================================================================
+11.factorial Program:
+
+import java.util.Scanner;
+
+public class factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number to do Factorial");
+        int num = sc.nextInt();
+        int fact = 1;
+
+        for(int i = num; i > 0; --i) {
+            fact *= i;
+        }
+
+        String var4 = "Factorial of the number " + num + " is " + fact;
+        System.out.println(fact);
+    }
+}
+
+=================================================================================================
+12.Fibonacci program:
+
+import java.util.Scanner;
+
+public class fibonacci {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the sequece till you want to see fibonacci");
+        int num = sc.nextInt();
+        System.out.print(0+ " "+ 1+ " ");
+        int prev2 = 0;
+        int prev = 1;
+        int fib = 0;
+        for(int i=3; i <= num; i++){
+            fib = prev+prev2;
+            prev2 = prev;
+            prev = fib;
+            System.out.print(fib + " ");
+        }
+    }
+}
+
+
