@@ -1,0 +1,102 @@
+1. You are tasked with creating a grade calculator program. The program should take a student's score as input and output their corresponding grade based on the following criteria:
+A: 90-100
+B: 80-89
+C: 70-79
+D: 60-69
+F: Below 60
+Ensure that if the input score is not within the range of 0 to 100, the program outputs an error message.
+
+sol :
+  
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the student's score: ");
+        try {
+            double score = scanner.nextDouble();
+            System.out.println("Grade: " + calculateGrade(score));
+        } catch (Exception e) {
+            System.out.println("Error: Please enter a valid numeric score");
+        } finally {
+            scanner.close();
+        }
+    }
+
+    public static String calculateGrade(double score) {
+        if (score < 0 || score > 100) {
+            return "Error: Score must be between 0 and 100";
+        } else if (score >= 90) {
+            return "A";
+        } else if (score >= 80) {
+            return "B";
+        } else if (score >= 70) {
+            return "C";
+        } else if (score >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+}
+
+2. Ticket Pricing:
+You are designing a ticket pricing program for a movie theater. The program should prompt the user for their age and the type of movie they want to watch (e.g., "regular" or "3D"). Based on the age and movie type, the program should calculate and output the ticket price according to the following rules:
+Regular Movie:
+Age < 18: $8
+Age >= 18: $12
+3D Movie:
+Age < 18: $10
+Age >= 18: $15
+
+sol :
+
+import java.util.Scanner;
+
+public class TicketPricing {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+        
+        System.out.print("Enter the type of movie (regular or 3D): ");
+        String movieType = scanner.next().toLowerCase(); // Convert input to lowercase
+        
+        double ticketPrice = calculateTicketPrice(age, movieType);
+        
+        if (ticketPrice == -1) {
+            System.out.println("Error: Invalid input");
+        } else {
+            System.out.println("Ticket Price: $" + ticketPrice);
+        }
+        
+        scanner.close();
+    }
+
+    public static double calculateTicketPrice(int age, String movieType) {
+        double price = -1; 
+        if (!movieType.equals("regular") && !movieType.equals("3d")) {
+            return price; // Return -1 for invalid movie type
+        }
+        
+        if (movieType.equals("regular")) {
+            if (age < 18) {
+                price = 8;
+            } else {
+                price = 12;
+            }
+        } else if (movieType.equals("3d")) {
+            if (age < 18) {
+                price = 10;
+            } else {
+                price = 15;
+            }
+        }
+        
+        return price;
+    }
+}
+
