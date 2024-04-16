@@ -1,0 +1,140 @@
+Task 1: Data Types/Variables
+Write a program that declares two integer variables, swaps their values without using a third variable, and prints the result.
+
+sol:
+package learnprograms;
+public class Swap {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 10;
+        System.out.println("Before swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+	a = a + b;
+        b = a - b;
+        a = a - b;
+	System.out.println("\nAfter swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+}
+
+================================================================================================
+
+Task 2: Operators
+Create a program that simulates a simple calculator using command-line arguments to perform and 
+print the result of addition, subtraction, multiplication, and division.
+sol:
+package learnprograms;
+
+import java.util.Scanner;
+
+public class SimpleCalculator {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.print("Enter operator (+, -, *, /, %): ");
+        char operator = sc.next().charAt(0);
+
+        int result = 0;
+        switch (operator) {
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                if (b != 0) {
+                    result = a / b;
+                } else {
+                    System.out.println("Cannot divide by zero");
+                    return;
+                }
+                break;
+            case '%':
+                result = a % b;
+                break;
+            default:
+                System.out.println("Invalid operator");
+                return;
+        }
+
+        System.out.println("Result: " + result);
+    }
+}
+==================================================================================================
+Task 3: Control Flow
+Write a Java program that reads an integer and prints whether it is a prime number using a for loop and if statements.
+sol:
+package learnprograms;
+
+import java.util.Scanner;
+
+public class Prime {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        if (isPrime) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+    }
+}
+===================================================================================================
+Task 4: Arrays - Declaration, Initialization, and Usage
+Create a program that declares an array of integers, initializes it with consecutive numbers, and prints the array in reverse order.
+
+sol:
+package learnprograms;
+import java.util.Scanner;
+
+public class ReverseArray {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = sc.nextInt();
+
+        int[] a = new int[n];
+
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        System.out.println("Reversed array:");
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(a[i] + " ");
+        }
+    }
+}
+
+
