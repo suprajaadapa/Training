@@ -1,0 +1,142 @@
+Day 4 and Day 5
+Task 1: Constructors
+Implement a Matrix class that has a constructor which initializes the dimensions of a matrix and a method to fill the matrix with values.
+
+sol:
+package constructors;
+public class Matrix {
+    private int rows;
+    private int columns;
+    private int[][] data;
+
+    public Matrix(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+        this.data = new int[rows][columns];
+    }
+
+    public void fillMatrix(int[][] values) {
+        if (values.length != rows || values[0].length != columns) {
+            System.out.println("Input values array dimensions do not match matrix dimensions.");
+            return;
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = values[i][j];
+            }
+        }
+    }
+
+    public void printMatrix() {
+        System.out.println("Matrix:");
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Matrix matrix = new Matrix(3, 3);
+
+        int[][] values = {
+            {10, 21, 32},
+            {14, 25, 46},
+            {17, 28, 39}
+        };
+        matrix.fillMatrix(values);
+
+        // Print the matrix
+        matrix.printMatrix();
+    }
+}
+==================================================================================================
+Task 2: Inheritance
+Create a Shape class with a method area() and extend it with Circle and Rectangle classes overriding the area() method appropriately.
+sol:
+// Shape.java
+public abstract class Shape {
+    public abstract double area();
+}
+
+// Circle.java
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Rectangle.java
+public class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double area() {
+        return length * width;
+    }
+}
+
+// Main.java 
+public class Main {
+    public static void main(String[] args) {
+        Shape circle = new Circle(5.0);
+        Shape rectangle = new Rectangle(4.0, 6.0);
+
+        System.out.println("Area of Circle: " + circle.area());
+        System.out.println("Area of Rectangle: " + rectangle.area());
+    }
+}
+=====================================================================================================
+Task 1: List interface
+Implement a method that takes a List as an argument and removes every second element from the list, then prints the resulting list
+sol:
+import java.util.ArrayList;
+import java.util.List;
+
+public class RemoveEverySecondElement {
+
+    public static <T> void removeEverySecondElement(List<T> list) {
+        List<T> result = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            if (i % 2 == 0) {
+                result.add(list.get(i));
+            }
+        }
+
+        list.clear();
+        list.addAll(result);
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(12);
+        numbers.add(22);
+        numbers.add(34);
+        numbers.add(46);
+        numbers.add(52);
+        numbers.add(68);
+
+        System.out.println("Original list: " + numbers);
+
+        removeEverySecondElement(numbers);
+
+        System.out.println("List after removing every second element: " + numbers);
+    }
+}
