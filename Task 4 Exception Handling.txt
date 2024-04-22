@@ -1,0 +1,67 @@
+Task 4: Basic Exception Handling
+
+* Write a program that attempts to divide by zero, catches the ArithmeticException, 
+and provides a custom error message.
+sol:
+public class DivideByZeroExample {
+    public static void main(String[] args) {
+        try {
+            int numerator = 20;
+            int denominator = 0;
+            int result = numerator / denominator;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed!");
+        }
+    }
+}
+==========================================================================================================
+1) Create a CustomStack class with operations Push, Pop, Peek, and IsEmpty. Demonstrate its LIFO behavior by 
+pushing integers onto the stack, then popping and displaying them until the stack is empty.
+sol:
+package ExceptionHandling;
+import java.util.Stack;
+
+public class CustomStack {
+  public static void main(String[] args) {
+
+    // create an object of Stack class
+    Stack<String> animals= new Stack<>();
+
+    // push elements to top of stack
+    animals.push("lion");
+    animals.push("rabit");
+    animals.push("cow");
+    System.out.println("Stack: " + animals);
+
+    // pop element from top of stack
+    animals.pop();
+    System.out.println("Stack after pop: " + animals);
+    }
+}
+===========================================================================================================
+2) Develop a CustomQueue class with methods for Enqueue, Dequeue, Peek, and IsEmpty. Show how your 
+queue can handle different data types by enqueuing strings and integers, then dequeuing and 
+displaying them to confirm FIFO order.
+sol:
+package ExceptionHandling;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class CustomQueue {
+    public static void main(String[] args) {
+
+        // create an object of Queue class
+        Queue<String> animals = new LinkedList<>();
+
+        // enqueue elements to the queue
+        animals.add("Dog");
+        animals.add("Horse");
+        animals.add("Cat");
+        System.out.println("Queue: " + animals);
+
+        // dequeue element from the front of the queue
+        animals.poll();
+        System.out.println("Queue after dequeue: " + animals);
+    }
+}
