@@ -1,0 +1,84 @@
+Task 3: Packages/Classpath
+Create a package com.math.operations and include classes for various arithmetic operations. 
+Demonstrate how to compile and run these using the classpath.
+sol:
+-Addition.java
+package com.math.operations;
+
+public class Addition {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        int result = add(5, 3);
+        System.out.println("Addition result: " + result);
+    }
+}
+
+-Substarction.java
+package com.math.operations;
+
+public class Subtraction {
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public static void main(String[] args) {
+        int result = subtract(5, 3);
+        System.out.println("Subtraction result: " + result);
+    }
+}
+
+-Multiplication.java
+package com.math.operations;
+
+public class Multiplication {
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public static void main(String[] args) {
+        int result = multiply(5, 3);
+        System.out.println("Multiplication result: " + result);
+    }
+}
+
+-Division.java
+package com.math.operations;
+
+public class Division {
+    public static double divide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return (double) a / b;
+    }
+
+    public static void main(String[] args) {
+        double result = divide(6, 3);
+        System.out.println("Division result: " + result);
+    }
+}
+
+// Main.java
+
+import com.math.operations.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 5;
+
+        System.out.println("Addition result: " + Addition.add(a, b));
+        System.out.println("Subtraction result: " + Subtraction.subtract(a, b));
+        System.out.println("Multiplication result: " + Multiplication.multiply(a, b));
+
+        try {
+            System.out.println("Division result: " + Division.divide(a, b));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
